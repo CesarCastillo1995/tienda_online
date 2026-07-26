@@ -516,6 +516,11 @@ if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'carrito_vaciado') {
                         </a>
                     <?php endif; ?>
                     
+                    <!-- ✅ NUEVO ENLACE AGREGADO: MIS PEDIDOS -->
+                    <a href="gestion_pedidos.php" class="btn-pedidos" style="background: #8e44ad; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-right: 10px;">
+                        📋 Mis Pedidos
+                    </a>
+                    
                     <a href="cerrar_sesion.php" class="btn-cerrar-sesion">🚪 Cerrar sesión</a>
                 <?php else: ?>
                     <a href="login.php" class="btn-login">🔐 Iniciar sesión</a>
