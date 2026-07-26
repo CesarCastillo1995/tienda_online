@@ -1,0 +1,808 @@
+/* ============================================================
+   ESTILOS PRINCIPALES - TecnoStore
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 15px;
+    font-size: 28px;
+}
+
+h2 {
+    color: #34495e;
+    margin: 25px 0 20px 0;
+    border-left: 4px solid #3498db;
+    padding-left: 12px;
+    font-size: 20px;
+}
+
+/* ============================================================
+   FILTROS Y BÚSQUEDA
+   ============================================================ */
+.filtros-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 25px;
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+.filtro-item label {
+    display: block;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.filtro-item input,
+.filtro-item select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+.filtro-item input:focus,
+.filtro-item select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.btn-filtro {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.btn-filtro:hover {
+    background: #2980b9;
+}
+
+@media (max-width: 700px) {
+    .filtros-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .filtros-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   CATÁLOGO - GRID HORIZONTAL MODERNO
+   ============================================================ */
+.catalogo-container {
+    margin: 20px 0 30px 0;
+}
+
+.catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.producto-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    border-color: #3498db;
+}
+
+.producto-imagen {
+    background: linear-gradient(135deg, #eaf2f8, #f0f2f5);
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.producto-icono {
+    font-size: 56px;
+    opacity: 0.9;
+}
+
+.stock-bajo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.producto-info {
+    padding: 15px 18px 18px 18px;
+}
+
+.producto-categoria {
+    display: inline-block;
+    background: #eaf2f8;
+    color: #3498db;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.producto-nombre {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 5px 0;
+}
+
+.producto-descripcion {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+    min-height: 36px;
+}
+
+.producto-precio-stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.producto-precio {
+    font-size: 20px;
+    font-weight: 700;
+    color: #27ae60;
+}
+
+.producto-stock {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.btn-agregar-carrito {
+    display: block;
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-agregar-carrito:hover {
+    background: #1e8449;
+}
+
+.sin-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+}
+
+/* ============================================================
+   PROMOCIÓN
+   ============================================================ */
+.promo-banner {
+    background: linear-gradient(135deg, #e74c3c, #f39c12);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.promo-banner h3 {
+    margin: 0;
+}
+
+.promo-banner p {
+    margin: 5px 0 0 0;
+    opacity: 0.9;
+}
+
+.promo-banner span {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* ============================================================
+   CARRITO DE COMPRAS
+   ============================================================ */
+.carrito-box {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    margin: 20px 0;
+}
+
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.carrito-header h2 {
+    margin: 0;
+    border-left: 4px solid #27ae60;
+    padding-left: 12px;
+}
+
+.btn-vaciar {
+    background: #e74c3c;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background 0.3s;
+}
+
+.btn-vaciar:hover {
+    background: #c0392b;
+}
+
+.carrito-vacio {
+    color: #7f8c8d;
+    padding: 15px 0;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    border: 1px solid #f0f0f0;
+}
+
+.carrito-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carrito-item-cantidad {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.carrito-item-acciones {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.carrito-item-subtotal {
+    font-weight: 600;
+    color: #27ae60;
+}
+
+.btn-eliminar {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: transform 0.2s;
+}
+
+.btn-eliminar:hover {
+    transform: scale(1.2);
+}
+
+.carrito-resumen {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-top: 2px solid #3498db;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.carrito-total {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.carrito-total span {
+    color: #27ae60;
+}
+
+.carrito-cantidad {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* ============================================================
+   FORMULARIO DE PAGO
+   ============================================================ */
+.form-pago {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    margin-top: 15px;
+}
+
+.form-pago h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.form-pago .grid-pago {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-pago input {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 14px;
+    width: 100%;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-pago input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.form-pago label {
+    display: block;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.required {
+    color: #e74c3c;
+}
+
+.btn-pagar {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 15px;
+    width: auto;
+}
+
+.btn-pagar:hover {
+    background: #1e8449;
+    transform: scale(1.02);
+}
+
+.pago-seguro {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+    .form-pago .grid-pago {
+        grid-template-columns: 1fr;
+    }
+    .btn-pagar {
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   PEDIDOS
+   ============================================================ */
+.pedidos-container {
+    margin: 20px 0;
+}
+
+.pedidos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-limpiar {
+    background: #e74c3c;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.btn-limpiar:hover {
+    background: #c0392b;
+}
+
+.pedido-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    border: 1px solid #e9ecef;
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pedido-id {
+    background: #eaf2f8;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.pedido-numero {
+    margin-left: 10px;
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+.badge-estado {
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: white;
+}
+
+.badge-estado.pendiente { background: #f39c12; }
+.badge-estado.en-proceso { background: #3498db; }
+.badge-estado.enviado { background: #9b59b6; }
+.badge-estado.entregado { background: #27ae60; }
+.badge-estado.cancelado { background: #e74c3c; }
+
+.pedido-productos {
+    margin-left: 20px;
+    color: #2c3e50;
+}
+
+.pedido-fecha {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* ============================================================
+   RESEÑAS
+   ============================================================ */
+.reseñas-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    margin-top: 20px;
+}
+
+.reseñas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    border: 1px solid #e9ecef;
+}
+
+.stars {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.reseña-fecha {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* ============================================================
+   MENSAJES
+   ============================================================ */
+.mensaje-exito {
+    background: #d5f5e3;
+    padding: 12px 18px;
+    border-radius: 6px;
+    color: #1e8449;
+    border-left: 4px solid #27ae60;
+    margin-bottom: 15px;
+}
+
+.mensaje-error {
+    background: #fde8e8;
+    padding: 12px 18px;
+    border-radius: 6px;
+    color: #c0392b;
+    border-left: 4px solid #e74c3c;
+    margin-bottom: 15px;
+}
+
+.mensaje-error ul {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.result-card {
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid #27ae60;
+}
+
+hr {
+    margin: 30px 0;
+    border: 1px solid #ecf0f1;
+}
+
+/* ============================================================
+   FORMULARIOS GENERALES
+   ============================================================ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 6px;
+}
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border 0.3s;
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-submit {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background: #2980b9;
+}
+
+.btn-submit.success {
+    background: #27ae60;
+}
+
+.btn-submit.success:hover {
+    background: #1e8449;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .catalogo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .catalogo-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    
+    .producto-card {
+        font-size: 13px;
+    }
+    
+    .producto-nombre {
+        font-size: 14px;
+    }
+    
+    .producto-precio {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .catalogo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   BOTÓN AGOTADO
+   ============================================================ */
+.btn-agotado {
+    display: block;
+    background: #bdc3c7;
+    color: #7f8c8d;
+    padding: 10px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: not-allowed;
+}
+
+/* ============================================================
+   BARRA DE USUARIO
+   ============================================================ */
+.user-bar {
+    background: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-login {
+    background: #3498db;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-login:hover {
+    background: #2980b9;
+}
+
+.btn-registro {
+    background: #27ae60;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-registro:hover {
+    background: #1e8449;
+}
+
+.btn-cerrar-sesion {
+    background: #e74c3c;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-cerrar-sesion:hover {
+    background: #c0392b;
+}
